@@ -104,7 +104,7 @@
       // Enable Pagination, and set to 20 items per page
       $objPaginator = new QPaginator($this->dtgInventoryModel);
       $this->dtgInventoryModel->Paginator = $objPaginator;
-      $this->dtgInventoryModel->ItemsPerPage = 20;
+      $this->dtgInventoryModel->ItemsPerPage = QApplication::$TracmorSettings->SearchResultsPerPage;
           
       $this->dtgInventoryModel->AddColumn(new QDataGridColumnExt('<img src=../images/icons/attachment_gray.gif border=0 title=Attachments alt=Attachments>', '<?= Attachment::toStringIcon($_ITEM->GetVirtualAttribute(\'attachment_count\')); ?>', 'SortByCommand="__attachment_count ASC"', 'ReverseSortByCommand="__attachment_count DESC"', 'CssClass="dtg_column"', 'HtmlEntities="false"'));
       $this->dtgInventoryModel->AddColumn(new QDataGridColumnExt('Inventory Code', '<?= $_ITEM->__toStringWithLink("bluelink"); ?>', 'SortByCommand="inventory_model_code ASC"', 'ReverseSortByCommand="inventory_model_code DESC"', 'CssClass="dtg_column"', 'HtmlEntities=false'));
